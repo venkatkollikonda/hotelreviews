@@ -10,14 +10,13 @@
 angular.module('HotelReview')
     .controller('MainController', ['$scope','HotelReviewService','$state','accessKey', function($scope,HotelReviewService,$state,accessKey) {
         $scope.accessKey = accessKey;
-
+        $scope.backupKey = 'AIzaSyDfJu_fS4M96OobY1nioLG3Bu2MDXEzHDU';
         $scope.allHotels = [];
 
         $scope.getPlaces = function(lat,long) {
             HotelReviewService.getLocationHotels(lat,long,4000)
                 .then(function(response) {
                     $scope.allHotels = returnCategoryRow(response.data.results, 2);
-                    console.log($scope.allHotels,"allhotels");
                     // close pull to refresh loader
                     //$ionicLoading.hide();
                     /*$scope.$broadcast('scroll.refreshComplete');*/

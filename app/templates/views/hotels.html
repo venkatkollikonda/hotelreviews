@@ -1,4 +1,4 @@
-<div class="containerList" ng-repeat="hotels in allHotels">
+<div class="containerList" ng-repeat="hotels in allHotels" ng-if="allHotels !== undefined">
   <a class="Item" ui-sref-active="active" ng-repeat="hotel in hotels" href="#/hotelInfo/{{hotel.place_id}}">
     <div class="itemImg" style="background-image: url({{accessKey.servicesUrl}}/photo?maxwidth=400&photoreference={{hotel.photos[0].photo_reference}}&key={{accessKey.key}})"></div>
     <div class="discCol"><span class="offersSpan">{{getOffer()}}%</span><span>off total Bill</span></div>
@@ -9,4 +9,8 @@
     </ul>
     <div class="ItemFooter" ng-bind="hotel.vicinity"></div>
   </a>
+</div>
+
+<div class="containerList" ng-if="allHotels === undefined" style="color: #d7541a;">
+  <p>Limit Exceeded Please update this key {{backupKey}} in app.js constants</p>
 </div>
