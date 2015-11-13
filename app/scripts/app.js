@@ -43,11 +43,6 @@ angular.module('HotelReview', ['ionic', 'ngCordova', 'ngResource', 'ngSanitize']
                 cache: true,
                 templateUrl: 'templates/views/home.html',
                 controller: 'HomeController'
-            })
-            .state('images', {
-                url: '/hotelInfo/:id/images',
-                cache: true,
-                templateUrl: 'templates/views/images.html'
             });
 
 
