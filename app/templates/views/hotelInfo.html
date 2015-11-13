@@ -1,0 +1,72 @@
+<div classs="infoDiv">
+  <div class="box blue infoImg" style="background-image: url({{accessKey.servicesUrl}}/photo?maxwidth=400&photoreference={{hotelInfo.photos[0].photo_reference}}&key={{accessKey.key}})">
+    <div class="hotelInfo">
+      <h5 ng-bind="hotelInfo.name"></h5>
+      <div class="totalRating">
+        <star-rating rating="4"></star-rating>
+      </div>
+      <div><span>Total Reviews</span><span class="offersSpan" ng-bind="hotelInfo.user_ratings_total"></span></div>
+      <div><icon class="icon icon-right ion-social-usd"></icon><span>Below $</span><span class="offersSpan">{{getOffer()}}</span></div>
+      <div><icon class="icon icon-right ion-android-walk"></icon><span class="offersSpan">{{getOffer()}}</span><span>Min Away</span></div>
+    </div>
+    <ul class="hoveredList">
+      <li><icon class="icon ion-android-call"></icon><span>Call</span></li>
+      <li><icon class="icon ion-map"></icon><span>Directions</span></li>
+      <li><icon class="icon ion-ios-heart-outline"></icon><span>Share</span></li>
+      <li><icon class="icon ion-outlet"></icon><span>Outlets</span></li>
+      <li><icon class="icon ion-ios-heart-outline"></icon><span>Favourities</span></li>
+    </ul>
+  </div>
+
+  <ul class="customTabs">
+    <li ng-class="{active:tab === 'reviews'}" ng-click="setTab('reviews')"><a href="javascript:void(0)">Reviews</a></li>
+    <li ng-class="{active:tab === 'info'}"  ng-click="setTab('info')"><a href="javascript:void(0)">Info</a></li>
+  </ul>
+
+  <ion-list ng-if='tab === "reviews"'>
+    <div ng-repeat="review in hotelInfo.reviews">
+      <ion-item class="item-stable"
+                ng-click="toggleGroup(review)"
+                ng-class="{active: isGroupShown(review)}">
+        <div class="ratingsDiv">
+          <i class="icon" ng-class="isGroupShown(review) ? 'ion-minus' : 'ion-plus'"></i>
+          <div class="reviewerImg" style="background-image: url({{review.profile_photo_url}})" ng-if="review.profile_photo_url.length === 0 || review.profile_photo_url !== undefined"></div>
+          <div class="reviewerImg" style="background-image: url('http://placehold.it/120x120&text=image1');" ng-if="review.profile_photo_url ==='' || review.profile_photo_url === undefined"></div>
+          <div class="reviewerName" ng-bind="review.author_name"></div>
+          <star-rating rating="review.rating"></star-rating>
+        </div>
+      </ion-item>
+      <ion-item class="item-accordion"
+                ng-show="isGroupShown(review)">
+        <p ng-bind="review.text" style="white-space:normal;"></p>
+      </ion-item>
+    </div>
+  </ion-list>
+
+  <div class="list" ng-if="tab === 'info'">
+    <div class="item item-divider">
+      Address
+    </div>
+    <div class="item" ng-bind="hotelInfo.formatted_address">
+
+    </div>
+
+    <div class="item item-divider">
+      Contact
+    </div>
+    <div class="item" ng-bind="hotelInfo.international_phone_number">
+
+    </div>
+
+    <div class="item item-divider">
+      Photos
+    </div>
+    <div class="item">
+      <ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true" slide-interval="2000">
+        <ion-slide ng-repeat="photo in hotelInfo.photos">
+          <div class="slideImg" style="background-image: url({{accessKey.servicesUrl}}/photo?maxwidth=400&photoreference={{photo.photo_reference}}&key={{accessKey.key}})"></div>
+        </ion-slide>
+      </ion-slide-box>
+    </div>
+  </div>
+</div>

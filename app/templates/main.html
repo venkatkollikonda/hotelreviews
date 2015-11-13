@@ -1,0 +1,19 @@
+<ion-view>
+    <ion-header-bar align-title="center" class="bar-positive">
+        <h1 class="title">Hotels</h1>
+    </ion-header-bar>
+
+    <ion-content class="padding">
+        <div class="bar bar-header item-input-inset">
+            <label class="item-input-wrapper">
+                <i class="icon ion-location placeholder-icon"></i>
+                <input type="search" placeholder="Enter location or postal code" class="searchBoxExtension">
+            </label>
+            <button class="button button-clear ion-chevron-down"></button>
+        </div>
+        <div class="container" ng-include="'templates/views/hotels.html'">
+
+        </div>
+    </ion-content>
+
+</ion-view>

@@ -1,0 +1,22 @@
+<ion-view>
+    <ion-list>
+        <div ng-repeat="review in hotelInfo.reviews">
+            <ion-item class="item-stable"
+                      ng-click="toggleGroup(review)"
+                      ng-class="{active: isGroupShown(review)}">
+                <div class="ratingsDiv">
+                    <i class="icon" ng-class="isGroupShown(review) ? 'ion-minus' : 'ion-plus'"></i>
+                    <div class="reviewerImg" style="background-image: url({{review.profile_photo_url}})"></div>
+                    <div class="reviewerName" ng-bind="review.author_name"></div>
+                    <ul class="ratingStars">
+                        <li ng-repeat="i in getNumber(review.rating) track by $index"><icon class="ion-ios-star-outline"></icon></li>
+                    </ul>
+                </div>
+            </ion-item>
+            <ion-item class="item-accordion"
+                      ng-show="isGroupShown(review)">
+                <p ng-bind="review.text" style="white-space:normal;"></p>
+            </ion-item>
+        </div>
+    </ion-list>
+</ion-view>
