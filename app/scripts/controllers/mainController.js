@@ -10,34 +10,36 @@
 angular.module('HotelReview')
     .controller('MainController', ['$scope','HotelReviewService','$state','accessKey', function($scope,HotelReviewService,$state,accessKey) {
         $scope.accessKey = accessKey;
+
         $scope.allHotels = [];
 
         $scope.getPlaces = function(lat,long) {
             HotelReviewService.getLocationHotels(lat,long,4000)
                 .then(function(response) {
                     $scope.allHotels = returnCategoryRow(response.data.results, 2);
+                    console.log($scope.allHotels,"allhotels");
                     // close pull to refresh loader
                     //$ionicLoading.hide();
-                    $scope.$broadcast('scroll.refreshComplete');
+                    /*$scope.$broadcast('scroll.refreshComplete');*/
                 });
         };
 
         $scope.getPlaces(1.2839,103.8515);
 
 
-        document.addEventListener("deviceready", onDeviceReady, false);
+        /*document.addEventListener("deviceready", onDeviceReady, false);
 
         function onDeviceReady() {
 
             //console.log("on device ready "+ navigator.geolocation.getCurrentPosition());
 
-            $ionicLoading.show({
+           /!* $ionicLoading.show({
                 content: 'getting location ...',
                 animation: 'fade-in',
                 showBackdrop: false,
                 maxWidth: 200,
                 showDelay: 0
-            });
+            });*!/
 
             navigator.geolocation.getCurrentPosition(function(position) {
                 console.log("latitude "+position.coords.latitude +" longitude "+ position.coords.longitude);
@@ -57,7 +59,7 @@ angular.module('HotelReview')
             //    });
 
         }
-
+*/
 
 
 
