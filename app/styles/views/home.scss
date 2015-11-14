@@ -37,7 +37,7 @@
 }
 
 .offersSpan {
-  margin:0 1%;
+  margin:0 .5%;
 }
 
 .ItemFooter {
@@ -51,6 +51,7 @@
 .itemDetails {
   list-style-type: none;
   color: #4E545F;
+  padding:2%;
 }
 
 .itemDetails li:first-child {
@@ -208,6 +209,7 @@ a{
 
 .active {
   background-color: #d7541a;
+  color:#ffffff;
 }
 
 .active a{
@@ -218,6 +220,8 @@ a{
   display: flex;
   flex-direction:row;
   justify-content: center;
+  position: relative;
+  right:1%;
 }
 
 .filled {
