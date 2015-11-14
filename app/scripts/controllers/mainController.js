@@ -8,22 +8,14 @@
  * This controller handles the side menu
  */
 angular.module('HotelReview')
-    .controller('MainController', ['$scope','HotelReviewService','$state','accessKey', function($scope,HotelReviewService,$state,accessKey) {
+    .controller('MainController', ['$scope','HotelReviewService','$state','accessKey','InitialData', function($scope,HotelReviewService,$state,accessKey,InitialData) {
         $scope.accessKey = accessKey;
         $scope.backupKey = 'AIzaSyDfJu_fS4M96OobY1nioLG3Bu2MDXEzHDU';
-        $scope.allHotels = [];
+        $scope.allHotels = InitialData;
 
-        $scope.getPlaces = function(lat,long) {
-            HotelReviewService.getLocationHotels(lat,long,4000)
-                .then(function(response) {
-                    $scope.allHotels = returnCategoryRow(response.data.results, 2);
-                    // close pull to refresh loader
-                    //$ionicLoading.hide();
-                    /*$scope.$broadcast('scroll.refreshComplete');*/
-                });
+        $scope.getOffer = function(){
+            return Math.floor((Math.random() * 10) + 10);
         };
-
-        $scope.getPlaces(1.2839,103.8515);
 
 
         /*document.addEventListener("deviceready", onDeviceReady, false);
@@ -60,38 +52,5 @@ angular.module('HotelReview')
         }
 */
 
-
-
-
-
-
-        // do something with $scope
-
-        function returnCategoryRow (object,limit){
-            var categoriesRow = {};
-            var startIndex = 0;
-            var count = limit;
-            for(var i=0; i<object.length;i++){
-                var slicedArray = object.slice(startIndex,getEndIndex(object.length,startIndex+count));
-                if(slicedArray.length > 0){
-                    categoriesRow[i] = slicedArray;
-                }else{
-                    return categoriesRow;
-                }
-                startIndex = getEndIndex(object.length,startIndex+count);
-            }
-        };
-
-        function getEndIndex(length, endIndex){
-            if(endIndex <= length){
-                return endIndex;
-            }else{
-                return length;
-            }
-        };
-
-        $scope.getOffer = function(){
-            return Math.floor((Math.random() * 10) + 10);
-        };
 
     }]);

@@ -15,7 +15,6 @@ angular.module('HotelReview')
             link:function(scope,elament,att){
                 scope.maxRate = 5;
                 scope.rating = parseInt(scope.rating);
-                console.log(scope.rating);
                 function updateStars() {
                     scope.stars = [];
                     for (var i = 0; i < scope.maxRate; i++) {
