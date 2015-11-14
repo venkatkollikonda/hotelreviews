@@ -45,5 +45,8 @@
   },
   "scripts": {
     "gulp": "./node_modules/.bin/gulp"
-  }
+  },
+  "cordovaPlugins": [
+    "cordova-plugin-whitelist"
+  ]
 }
