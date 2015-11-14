@@ -1,0 +1,15 @@
+<div class="list">
+    <div class="item item-divider">Address</div>
+    <div class="item" ng-bind="hotelInfo.formatted_address"></div>
+    <div class="item item-divider">Contact</div>
+    <div class="item" ng-bind="hotelInfo.international_phone_number"></div>
+    <div class="item item-divider">Photos</div>
+    <div class="item">
+        <ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true" slide-interval="2000">
+            <ion-slide ng-repeat="photo in hotelInfo.photos">
+                <div class="slideImg" style="background-image: url({{accessKey.servicesUrl}}/photo?maxwidth=400&photoreference={{photo.photo_reference}}&key={{accessKey.key}})"></div>
+            </ion-slide>
+        </ion-slide-box>
+    </div>
+</div>
+

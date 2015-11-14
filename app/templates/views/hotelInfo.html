@@ -24,52 +24,6 @@
     <li ng-class="{active:tab === 'reviews'}" ng-click="setTab('reviews')"><a href="javascript:void(0)">Reviews</a></li>
     <li ng-class="{active:tab === 'info'}"  ng-click="setTab('info')"><a href="javascript:void(0)">Info</a></li>
   </ul>
-
-  <ion-list ng-if='tab === "reviews"'>
-    <div ng-repeat="review in hotelInfo.reviews" ng-if="hotelInfo.reviews !== undefined">
-      <ion-item class="item-stable"
-                ng-click="toggleGroup(review)"
-                ng-class="{active: isGroupShown(review)}">
-        <div class="ratingsDiv">
-          <i class="icon" ng-class="isGroupShown(review) ? 'ion-minus' : 'ion-plus'"></i>
-          <div class="reviewerImg" style="background-image: url('https:{{review.profile_photo_url}}')" ng-if="review.profile_photo_url.length === 0 || review.profile_photo_url !== undefined"></div>
-          <div class="reviewerImg" style="background-image: url('https://www.gstatic.com/webp/gallery3/1_webp_ll.png');" ng-if="review.profile_photo_url ==='' || review.profile_photo_url === undefined"></div>
-          <div class="reviewerName" ng-bind="review.author_name"></div>
-          <star-rating rating="review.rating"></star-rating>
-        </div>
-      </ion-item>
-      <ion-item class="item-accordion"
-                ng-show="isGroupShown(review)">
-        <p ng-bind="review.text" style="white-space:normal;"></p>
-      </ion-item>
-    </div>
-    <div ng-if="hotelInfo.reviews.length === undefined"> No Reviews</div>
-  </ion-list>
-
-  <div class="list" ng-if="tab === 'info'">
-    <div class="item item-divider">
-      Address
-    </div>
-    <div class="item" ng-bind="hotelInfo.formatted_address">
-
-    </div>
-
-    <div class="item item-divider">
-      Contact
-    </div>
-    <div class="item" ng-bind="hotelInfo.international_phone_number">
-
-    </div>
-
-    <div class="item item-divider">
-      Photos
-    </div>
-    <div class="item">
-      <ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true" slide-interval="2000">
-        <ion-slide ng-repeat="photo in hotelInfo.photos">
-          <div class="slideImg" style="background-image: url({{accessKey.servicesUrl}}/photo?maxwidth=400&photoreference={{photo.photo_reference}}&key={{accessKey.key}})"></div>
-        </ion-slide>
-      </ion-slide-box>
-    </div>
-  </div>
+  <ui-view></ui-view>
 </div>
+

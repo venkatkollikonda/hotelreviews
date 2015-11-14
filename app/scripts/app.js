@@ -53,6 +53,18 @@ angular.module('HotelReview', ['ionic', 'ngCordova', 'ngResource', 'ngSanitize']
                         return HotelReviewDataModelService.getHotelInfo($stateParams.id);
                     }
                 }
+            })
+            .state('hotel.reviews', {
+                url: '/hotelInfo/:id/reviews',
+                cache: true,
+                templateUrl: 'templates/views/reviews.html',
+                controller: 'ReviewsController'
+            })
+            .state('hotel.info', {
+                url: '/hotelInfo/:id/info',
+                cache: true,
+                templateUrl: 'templates/views/info.html',
+                controller: 'InfoController'
             });
 
 

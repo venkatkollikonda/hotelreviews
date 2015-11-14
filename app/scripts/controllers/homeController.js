@@ -7,13 +7,19 @@
  * # HomeController
  */
 angular.module('HotelReview')
-    .controller('HomeController',['$scope','accessKey','hotelData','$cordovaSocialSharing', function($scope,accessKey,hotelData,$cordovaSocialSharing) {
+    .controller('HomeController',['$scope','accessKey','hotelData','$cordovaSocialSharing','$state', function($scope,accessKey,hotelData,$cordovaSocialSharing,$state) {
         $scope.hotelInfo = hotelData;
         $scope.accessKey = accessKey;
         /*include exclude taber functionality*/
         $scope.tab = 'reviews';
+        $state.go('hotel.reviews');
         $scope.setTab = function (tabId) {
             $scope.tab = tabId;
+            if(tabId === 'reviews'){
+                $state.go('hotel.reviews')
+            }else{
+                $state.go('hotel.info')
+            }
         };
 
         /*shocial sharing*/
