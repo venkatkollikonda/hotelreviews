@@ -10,13 +10,14 @@
 angular.module('HotelReview')
     .controller('MainController', ['$scope','HotelReviewService','$state','accessKey','InitialData', function($scope,HotelReviewService,$state,accessKey,InitialData) {
         $scope.accessKey = accessKey;
-        $scope.backupKey = 'AIzaSyDfJu_fS4M96OobY1nioLG3Bu2MDXEzHDU';
+        $scope.backupKey = 'AIzaSyC12UlFrlR4o57BJVsbKhcf43ECn7UuUAM';
         $scope.allHotels = InitialData;
 
         $scope.getOffer = function(){
             var num = Math.floor((Math.random() * 10) + 10);
             return num;
         };
+
 
         /*document.addEventListener("deviceready", onDeviceReady, false);
 

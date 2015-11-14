@@ -1,11 +1,11 @@
 <div class="containerList" ng-repeat="hotels in allHotels" ng-if="allHotels !== undefined">
-  <a class="Item" ui-sref-active="active" ng-repeat="hotel in hotels" href="#/hotelInfo/{{hotel.place_id}}">
+  <a class="Item" ui-sref-active="active" ng-repeat="hotel in hotels |filter:hotelName" href="#/hotelInfo/{{hotel.place_id}}">
     <div class="itemImg" style="background-image: url({{accessKey.servicesUrl}}/photo?maxwidth=400&photoreference={{hotel.photos[0].photo_reference}}&key={{accessKey.key}})"></div>
-    <div class="discCol"><span class="offersSpan">{{getOffer()}}%</span><span>off total Bill</span></div>
+    <div class="discCol"><span class="offersSpan">%</span><span>off total Bill</span></div>
     <ul class="itemDetails">
       <li ng-bind="hotel.name"></li>
-      <li><icon class="icon icon-right ion-android-walk"></icon><span class="offersSpan">{{getOffer()}}</span><span> Min Away</span></li>
-      <li><icon class="icon icon-right ion-social-usd"></icon><span class="offersSpan">Below</span><span class="offersSpan"> ${{getOffer()}}</span></li>
+      <li><icon class="icon icon-right ion-android-walk"></icon><span class="offersSpan"></span><span> Min Away</span></li>
+      <li><icon class="icon icon-right ion-social-usd"></icon><span class="offersSpan">Below</span><span class="offersSpan"> $</span></li>
     </ul>
     <div class="ItemFooter" ng-bind="hotel.vicinity"></div>
   </a>
