@@ -7,13 +7,25 @@
  * # HomeController
  */
 angular.module('HotelReview')
-    .controller('HomeController',['$scope','accessKey','hotelData', function($scope,accessKey,hotelData) {
+    .controller('HomeController',['$scope','accessKey','hotelData','$cordovaSocialSharing', function($scope,accessKey,hotelData,$cordovaSocialSharing) {
         $scope.hotelInfo = hotelData;
         $scope.accessKey = accessKey;
         /*include exclude taber functionality*/
         $scope.tab = 'reviews';
         $scope.setTab = function (tabId) {
             $scope.tab = tabId;
+        };
+
+        /*shocial sharing*/
+        $scope.socialShare =  function() {
+            $cordovaSocialSharing
+                .share($scope.hotelInfo.name, "Interesting",accessKey.servicesUrl+'/photo?maxwidth=400&photoreference=$'+$scope.hotelInfo.photos[0].photo_reference, $scope.hotelInfo.website) // Share via native share sheet
+                .then(function (result) {
+                   console.log('success',result);
+                    // Success!
+                }, function (err) {
+                    // An error occured. Show a message to the user
+                });
         };
 
         /*accordian functionality*/
