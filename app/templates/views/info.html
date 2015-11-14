@@ -7,7 +7,7 @@
     <div class="item">
         <ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true" slide-interval="2000">
             <ion-slide ng-repeat="photo in hotelInfo.photos">
-                <div class="slideImg" style="background-image: url({{accessKey.servicesUrl}}/photo?maxwidth=400&photoreference={{photo.photo_reference}}&key={{accessKey.key}})"></div>
+                <a ui-sref ="preview"><div class="slideImg" style="background-image: url({{accessKey.servicesUrl}}/photo?maxwidth=400&photoreference={{photo.photo_reference}}&key={{accessKey.key}})"></div></a>
             </ion-slide>
         </ion-slide-box>
     </div>

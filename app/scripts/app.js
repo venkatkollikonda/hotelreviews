@@ -65,6 +65,17 @@ angular.module('HotelReview', ['ionic', 'ngCordova', 'ngResource', 'ngSanitize']
                 cache: true,
                 templateUrl: 'templates/views/info.html',
                 controller: 'InfoController'
+            })
+            .state('preview', {
+                url: '/preview',
+                cache: true,
+                templateUrl: 'templates/views/preview.html',
+                controller: 'PreviewController',
+                resolve: {
+                    hotelData : function(HotelReviewDataModelService,$stateParams){
+                        return HotelReviewDataModelService.getHotelInfo('ChIJfyNkh6YZ2jERjHsd_P-iL_M');
+                    }
+                }
             });
 
 
