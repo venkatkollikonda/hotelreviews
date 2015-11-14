@@ -17,9 +17,8 @@
   display:flex;
   flex-direction: column;
   flex:1;
-  background-color: #ffffff;
   border-radius: 5%;
-  color:#000000;
+  color:#4E545F;
 }
 
 .itemImg {
@@ -31,7 +30,7 @@
 }
 
 .discCol {
-  background-color: #6EFF00;
+  background-color: #FAA61A;
   font-size: 15px;
   color:#ffffff;
   padding:1%;
@@ -52,7 +51,7 @@
 
 .itemDetails {
   list-style-type: none;
-  color: #000000;
+  color: #4E545F;
 }
 
 .itemDetails li:first-child {

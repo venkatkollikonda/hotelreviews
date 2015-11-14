@@ -34,8 +34,12 @@ angular.module('HotelReview')
             return new Array(parseInt(num));
         };
 
-        $scope.getOffer = function(){
-            return Math.floor((Math.random() * 10) + 10);
+        $scope.getOffer = function(num){
+            var num = Math.floor((Math.random() * 10) + 10);
+            return num;
         };
+        $scope.offerVal = $scope.getOffer();
+        $scope.disRandom = $scope.getOffer();
+
 
     }]);
