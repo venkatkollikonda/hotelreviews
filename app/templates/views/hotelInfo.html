@@ -1,21 +1,24 @@
 <div classs="infoDiv">
-  <div class="box blue infoImg" style="background-image: url({{accessKey.servicesUrl}}/photo?maxwidth=400&photoreference={{hotelInfo.photos[0].photo_reference}}&key={{accessKey.key}})">
-    <div class="hotelInfo">
-      <h5 ng-bind="hotelInfo.name"></h5>
-      <div class="totalRating">
-        <star-rating rating="4"></star-rating>
+  <div class="bgDiv">
+    <div class="bgImg" style="background-image: url({{accessKey.servicesUrl}}/photo?maxwidth=400&photoreference={{hotelInfo.photos[0].photo_reference}}&key={{accessKey.key}})"></div>
+    <div class="bgContent">
+      <div class="hotelInfo">
+        <h5 ng-bind="hotelInfo.name"></h5>
+        <div class="totalRating">
+          <star-rating rating="4"></star-rating>
+        </div>
+        <div><span>Total Reviews</span><span class="offersSpan" ng-bind="hotelInfo.user_ratings_total"></span></div>
+        <div><icon class="icon icon-right ion-social-usd"></icon><span>Below $</span><span class="offersSpan">{{getOffer()}}</span></div>
+        <div><icon class="icon icon-right ion-android-walk"></icon><span class="offersSpan">{{getOffer()}}</span><span>Min Away</span></div>
       </div>
-      <div><span>Total Reviews</span><span class="offersSpan" ng-bind="hotelInfo.user_ratings_total"></span></div>
-      <div><icon class="icon icon-right ion-social-usd"></icon><span>Below $</span><span class="offersSpan">{{getOffer()}}</span></div>
-      <div><icon class="icon icon-right ion-android-walk"></icon><span class="offersSpan">{{getOffer()}}</span><span>Min Away</span></div>
+      <ul class="hoveredList">
+        <li><icon class="icon ion-android-call"></icon><span>Call</span></li>
+        <li><icon class="icon ion-map"></icon><span>Directions</span></li>
+        <li><icon class="icon ion-ios-heart-outline"></icon><span>Share</span></li>
+        <li><icon class="icon ion-outlet"></icon><span>Outlets</span></li>
+        <li><icon class="icon ion-ios-heart-outline"></icon><span>Favourities</span></li>
+      </ul>
     </div>
-    <ul class="hoveredList">
-      <li><icon class="icon ion-android-call"></icon><span>Call</span></li>
-      <li><icon class="icon ion-map"></icon><span>Directions</span></li>
-      <li><icon class="icon ion-ios-heart-outline"></icon><span>Share</span></li>
-      <li><icon class="icon ion-outlet"></icon><span>Outlets</span></li>
-      <li><icon class="icon ion-ios-heart-outline"></icon><span>Favourities</span></li>
-    </ul>
   </div>
 
   <ul class="customTabs">

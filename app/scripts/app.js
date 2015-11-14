@@ -12,7 +12,7 @@
 
 angular.module('HotelReview', ['ionic', 'ngCordova', 'ngResource', 'ngSanitize'])
     .constant("accessKey", {
-        "key": "AIzaSyCXTKeZkhSGysNcf18bftfmBl279ROgXv8",
+        "key": "AIzaSyABcy-mbYnR10GMp_BMrzaTq2lnh-BKtt4",
         "servicesUrl":"https://maps.googleapis.com/maps/api/place"
     })
 
