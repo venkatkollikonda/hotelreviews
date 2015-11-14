@@ -10,8 +10,8 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  margin-bottom:5%;
 }
+
 
 .Item {
   display:flex;
@@ -19,23 +19,23 @@
   flex:1;
   background-color: #ffffff;
   border-radius: 5%;
+  color:#A16C6C;
 }
 
 .itemImg {
   background-repeat: no-repeat;
   background-position: center;
   background-size:cover;
-}
-
-.Item .itemImg  {
+  box-shadow: 2px 2px 2px #FFFFFF;
   height: 100px;
 }
 
 .discCol {
-  background-color: #E7DB46;
-  font-size: 20px;
+  background-color: #FF3B00;
+  font-size: 15px;
   color:#ffffff;
   padding:1%;
+  box-shadow: 2px 2px 2px #FFFFFF;
 }
 
 .offersSpan {
@@ -44,6 +44,10 @@
 
 .ItemFooter {
   border-top: 1px solid #e7e7e7;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-shadow: 2px 2px 2px #FFFFFF;
 }
 
 .itemDetails {
@@ -59,8 +63,8 @@
   white-space: nowrap;
 }
 
-.Item:first-child {
-  margin-right: 10px;
+.containerList .Item{
+  padding:15px;
 }
 
 .searchBoxExtension {
@@ -94,6 +98,7 @@
   flex-direction:column;
   height:100%;
   justify-content:space-between;
+  z-index: 5;
 }
 
 .slideImg {
