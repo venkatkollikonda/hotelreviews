@@ -5,7 +5,7 @@ node_modules/
 platforms/
 bower_components/
 
-.idea
+.idea/
 .tmp/
 www/
 .sass-cache
