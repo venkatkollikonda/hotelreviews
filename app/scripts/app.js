@@ -12,7 +12,7 @@
 
 angular.module('HotelReview', ['ionic', 'ngCordova', 'ngResource', 'ngSanitize'])
     .constant("accessKey", {
-        "key": "AIzaSyABcy-mbYnR10GMp_BMrzaTq2lnh-BKtt4",
+        "key": "AIzaSyASDNxC_49sPt0_NWnEAQzf3SjW41WGSlc",
         "servicesUrl":"https://maps.googleapis.com/maps/api/place"
     })
 
@@ -70,12 +70,7 @@ angular.module('HotelReview', ['ionic', 'ngCordova', 'ngResource', 'ngSanitize']
                 url: '/preview',
                 cache: true,
                 templateUrl: 'templates/views/preview.html',
-                controller: 'PreviewController',
-                resolve: {
-                    hotelData : function(HotelReviewDataModelService,$stateParams){
-                        return HotelReviewDataModelService.getHotelInfo('ChIJfyNkh6YZ2jERjHsd_P-iL_M');
-                    }
-                }
+                controller: 'PreviewController'
             });
 
 

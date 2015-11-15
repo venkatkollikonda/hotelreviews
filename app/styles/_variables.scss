@@ -2,4 +2,42 @@
  * Define variables here
  */
 
-$textColor: #ccc;
+$textColor: #FFF;
+
+$display: flex;
+
+@mixin flexFlow($type) {
+  flex-flow :$type;
+}
+
+@mixin justifyContent($type) {
+  justify-content :$type;
+}
+
+@mixin alignContent($type) {
+  align-content :$type;
+}
+
+@mixin flexDirection($type) {
+  flex-direction :$type;
+}
+
+@mixin alignSelf($type) {
+  align-self: $type;
+}
+
+@mixin alignItems($type) {
+  align-items: $type;
+}
+
+@mixin textAlign($type) {
+  text-align: $type;
+}
+
+@mixin flex($type) {
+  flex: $type;
+}
+
+
+
+

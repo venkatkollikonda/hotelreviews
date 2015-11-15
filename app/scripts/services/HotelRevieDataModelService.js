@@ -2,7 +2,7 @@
  * Created by venkateswararao on 14-Nov-15.
  */
 angular.module('HotelReview')
-    .service('HotelReviewDataModelService', function(HotelReviewService) {
+    .service('HotelReviewDataModelService', function(HotelReviewService,InitialDataModelService) {
 
         var service = {
             getInitialData : function(lat,lang){
@@ -41,6 +41,7 @@ angular.module('HotelReview')
             getHotelInfo : function(id){
                 return HotelReviewService.getHotelInfo(id).then(function(response){
                     if(response.data.status === 'OK'){
+                        InitialDataModelService.setHotelData(response.data.result);
                         return response.data.result;
                     }else{
 

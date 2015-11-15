@@ -2,7 +2,7 @@
  * Created by venkateswararao on 15-Nov-15.
  */
 angular.module('HotelReview')
-    .controller('PreviewController',['$scope','accessKey','hotelData', function($scope,accessKey,hotelData) {
+    .controller('PreviewController',['$scope','accessKey','InitialDataModelService', function($scope,accessKey,InitialDataModelService) {
         $scope.accessKey = accessKey;
-        $scope.images = hotelData.photos;
+        $scope.images = InitialDataModelService.getHotelImages();
     }]);

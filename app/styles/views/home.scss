@@ -1,39 +1,48 @@
+.imageResponsive {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:cover;
+}
+
+.textEllipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
 .container {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: space-around;
-  align-content: space-around;
+  display: $display;
+  @include flexFlow(column wrap);
+  @include justifyContent(space-around);
+  @include alignContent(space-around);
 }
 
 .containerList {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
+  display: $display;
+  @include flexFlow(row wrap);
+  @include justifyContent(space-between);
 }
 
 .Item {
-  display:flex;
-  flex-direction: column;
-  flex:1;
+  display:$display;
+  @include flexDirection(column);
+  @include flex(1);
   border-radius: 5%;
   color:#4E545F;
 }
 
 .itemImg {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size:cover;
-  box-shadow: 2px 2px 2px #FFFFFF;
+  @extend .imageResponsive;
+  box-shadow: 2px 2px 2px $textColor;
   height: 100px;
 }
 
 .discCol {
   background-color: #FAA61A;
   font-size: 15px;
-  color:#ffffff;
+  color:$textColor;
   padding:1%;
-  box-shadow: 2px 2px 2px #FFFFFF;
+  box-shadow: 2px 2px 2px $textColor;
 }
 
 .offersSpan {
@@ -41,11 +50,9 @@
 }
 
 .ItemFooter {
+  @extend .textEllipsis;
   border-top: 1px solid #e7e7e7;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  box-shadow: 2px 2px 2px #FFFFFF;
+  box-shadow: 2px 2px 2px $textColor;
 }
 
 .itemDetails {
@@ -56,9 +63,7 @@
 
 .itemDetails li:first-child {
   font-size:20px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  @extend .textEllipsis;
 }
 
 .containerList .Item{
@@ -70,8 +75,8 @@
 }
 
 .infoDiv {
-  display: flex;
-  flex-flow:column wrap;
+  display: $display;
+  @include flexFlow(column wrap);
 }
 
 .bgDiv {
@@ -83,63 +88,59 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size:cover;
+  @extend .imageResponsive;
 }
 
 .bgContent {
-  display:flex;
-  flex-direction:column;
+  display: $display;
+  @include flexDirection(column);
+  @include justifyContent(space-between);
   height:100%;
-  justify-content:space-between;
   z-index: 5;
 }
 
 .slideImg {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size:cover;
+  @extend .imageResponsive;
   height:100%;
   width:100%;
   border:1px solid green;
 }
 
 .hoveredList {
-  display:flex;
-  flex-flow: row wrap;
-  align-self: flex-end;
+  display: $display;
+  @include flexFlow(row wrap);
+  @include alignSelf(flex-end);
   border:1px solid transparent;
   min-height:20%;
   width:100%;
   background-color: #3D4443;
   opacity:0.6;
-  color:#ffffff;
+  color:$textColor;
 }
 
 .hoveredList li {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex:1;
+  display: $display;
+  @include flexDirection(column);
+  @include alignItems(center);
+  @include flex(1);
   font-size: 15px;
 }
 
 
 .hotelInfo {
   width:100%;
-  display:flex;
-  flex-flow: column wrap;
-  align-self:center;
-  text-align:center;
-  color: #FFFFFF;
+  display: $display;
+  @include flexFlow(column wrap);
+  @include alignSelf(center);
+  @include textAlign(center);
+  color: $textColor;
   opacity:0.6;
   background-color: #000000;
 }
 
 .hotelInfo>h5 {
   font-size: 20px;
-  color:#ffffff;
+  color:$textColor;
 }
 
 a{
@@ -148,9 +149,9 @@ a{
 
 
 .ratingsDiv {
-  display:flex;
-  flex-flow: row wrap;
-  align-items: center;
+  display: $display;
+  @include flexFlow(row wrap);
+  @include alignItems(center);
 }
 
 .reviewerImg {
@@ -158,18 +159,16 @@ a{
   height:50px;
   width:50px;
   border-radius: 50%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size:cover;
+  @extend .imageResponsive;
 }
 
 .reviewerName {
-  align-self:center;
-  flex:2;
+  @include alignSelf(center);
+  @include flex(2);
 }
 
 .ratingStars {
-  display:flex;
+  display:$display;
 }
 
 .ratingStars li {
@@ -194,32 +193,32 @@ a{
 /*tabs css*/
 
 .customTabs {
-  display:flex;
-  justify-content: center;
+  display:$display;
+  @include justifyContent(center);
   padding:1%;
 }
 
 .customTabs li{
   width:30%;
   padding:1%;
-  text-align: center;
+  @include textAlign(center);
   border:1px solid #e2e2e2;
   font-size: 20px;
 }
 
 .active {
   background-color: #d7541a;
-  color:#ffffff;
+  color:$textColor;
 }
 
 .active a{
-  color: #ffffff;
+  color: $textColor;
 }
 
 .totalRating {
-  display: flex;
-  flex-direction:row;
-  justify-content: center;
+  display: $display;
+  @include flexDirection(row);
+  @include justifyContent(center);
   position: relative;
   right:1%;
 }
