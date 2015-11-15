@@ -1,6 +1,7 @@
 <div class="containerList" ng-repeat="hotels in allHotels" ng-if="allHotels !== undefined">
   <a class="Item" ui-sref-active="active" ng-repeat="hotel in hotels |filter:hotelName" href="#/hotelInfo/{{hotel.place_id}}">
-    <div class="itemImg" style="background-image: url({{accessKey.servicesUrl}}/photo?maxwidth=400&photoreference={{hotel.photos[0].photo_reference}}&key={{accessKey.key}})"></div>
+    <div class="itemImg" style="background-image: url({{accessKey.servicesUrl}}/photo?maxwidth=400&photoreference={{hotel.photos[0].photo_reference}}&key={{accessKey.key}})" ng-if="hotel.photos !== undefined"></div>
+    <div class="itemImg" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg')" ng-if="hotel.photos === undefined"></div>
     <div class="discCol"><icon class="icon icon-right ion-android-walk"></icon><span class="offersSpan" ng-bind="getDistanceFromLatLonInKm(hotel.geometry.location.lat,hotel.geometry.location.lng,1.2839,103.8515)"></span><span> KM Away</span></div>
     <ul class="itemDetails">
       <li ng-bind="hotel.name"></li>

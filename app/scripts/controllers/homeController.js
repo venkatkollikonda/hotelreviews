@@ -59,5 +59,12 @@ angular.module('HotelReview')
         $scope.offerVal = $scope.getOffer();
         $scope.disRandom = $scope.getOffer();
 
+        $scope.callHotelNumber = function (number) {
+            window.plugins.CallNumber.callNumber(function (onSuccess) {
+
+            }, function (onFail) {
+
+            }, number, true)
+        };
 
     }]);
