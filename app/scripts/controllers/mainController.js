@@ -10,7 +10,7 @@
 angular.module('HotelReview')
     .controller('MainController', ['$scope','HotelReviewService','$state','accessKey','InitialData', function($scope,HotelReviewService,$state,accessKey,InitialData) {
         $scope.accessKey = accessKey;
-        $scope.backupKey = 'AIzaSyASDNxC_49sPt0_NWnEAQzf3SjW41WGSlc';
+        $scope.backupKey = 'AIzaSyBbAtxO85TEw0OOrjsevdFRADgZOcY7Z-Y';
         $scope.allHotels = InitialData;
 
         $scope.getOffer = function(){
